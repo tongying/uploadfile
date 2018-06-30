@@ -32,5 +32,5 @@ app.post('/uploadimg', upload.array('imgfile', 40), function(req, res, next) {
 })
 
 var server = app.listen(8999, 'localhost', function() {
-    console.log('server is running at port 9999...');
+    console.log('server is running at port 8999...');
 });
