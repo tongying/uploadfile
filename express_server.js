@@ -30,7 +30,7 @@ app.post('/uploadimg', upload.array('imgfile', 40), function(req, res, next) {
     }
 })
 
-var server = app.listen(8999, '0.0.0.0', function() {
+var server = app.listen(3000, '0.0.0.0', function() {
         let port = server.address().port
     console.log('server is running at port '+ port);
 });
