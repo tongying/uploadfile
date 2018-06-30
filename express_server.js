@@ -13,24 +13,25 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage });
 var app = express();
-app.use('/',express.static('dist/'));
-app.use('/upload', express.static(path.join(__dirname, './uploads/')))
-//var cpUpload = upload.fields([{ name: 'imgfile', maxCount: 12 }])
-app.post('/uploadimg', upload.array('imgfile', 40), function(req, res, next) {
-    var files = req.files
-    console.log(files);
-    if (!files[0]) {
-        res.send('error');
-    } else {
-        let result = {
-            hasError:false,
-            message:'上传成功',
-            data:files
-        }
-        res.send(result);
-    }
-})
+app.use(express.static('dist'));
+// app.use('/upload', express.static(path.join(__dirname, './uploads/')))
+// //var cpUpload = upload.fields([{ name: 'imgfile', maxCount: 12 }])
+// app.post('/uploadimg', upload.array('imgfile', 40), function(req, res, next) {
+//     var files = req.files
+//     console.log(files);
+//     if (!files[0]) {
+//         res.send('error');
+//     } else {
+//         let result = {
+//             hasError:false,
+//             message:'上传成功',
+//             data:files
+//         }
+//         res.send(result);
+//     }
+// })
 
 var server = app.listen(8999, 'localhost', function() {
-    console.log('server is running at port 8999...');
+        let port = server.address().port
+    console.log('server is running at port '+ port);
 });
