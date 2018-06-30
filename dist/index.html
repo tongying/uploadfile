@@ -156,7 +156,7 @@
             xhr.open('POST', '/uploadimg')
             xhr.onload = () => {
                 console.log(xhr.responseText);
-                if (xhr.status === 200 && xhr.responseText === 'success') {
+                if (xhr.status === 200 && !xhr.responseText.hasError) {
                     previewDOM.innerHTML = ''
                     xhr = null
                     alert('图片上传成功！')
